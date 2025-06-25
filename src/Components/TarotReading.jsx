@@ -22,22 +22,11 @@ const tarotImages = {
   'The Star': starImage,
   'The World': worldImage
 };
-
 const tarotCards = Object.keys(tarotImages);
 
 function getRandomCards() {
   const shuffled = [...tarotCards].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, 3);
-}
-
-function LoadingCard({ label }) {
-  return (
-    <div style={styles.card}>
-      <h3 style={styles.cardLabel}>{label}</h3>
-      <div className="shimmer shimmer-title" />
-      <div className="shimmer shimmer-text" />
-    </div>
-  );
 }
 
 export default function TarotReading() {
@@ -56,24 +45,25 @@ export default function TarotReading() {
     const drawn = getRandomCards();
     setCards(drawn.map(name => ({ name, meaning: null })));
 
-    // Fetch AI-generated meanings from backend
-    const predictions = await Promise.all(
-      drawn.map(async (name) => {
+    const updatedCards = await Promise.all(
+      drawn.map(async (card) => {
         try {
-          const res = await fetch(`${process.env.REACT_APP_API_URL}/predict`, {
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/predict`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: `Give a tarot interpretation for ${name}` })
+            body: JSON.stringify({ question: `What does ${card} mean for my future?` })
           });
-          const data = await res.json();
-          return { name, meaning: data.prediction || 'Mystical silence... try again!' };
-        } catch {
-          return { name, meaning: 'Could not fetch meaning.' };
+
+          const data = await response.json();
+          return { name: card, meaning: data.prediction };
+        } catch (err) {
+          console.error(err);
+          return { name: card, meaning: "Could not fetch prediction." };
         }
       })
     );
 
-    setCards(predictions);
+    setCards(updatedCards);
     setLoading(false);
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 4000);
@@ -95,8 +85,8 @@ export default function TarotReading() {
           <div style={styles.cardContainer}>
             {["Past", "Present", "Future"].map((label, idx) => {
               const card = cards[idx];
-              return loading || !card?.meaning ? (
-                <LoadingCard key={label} label={label} />
+              return !card || loading ? (
+                <div style={styles.card} key={label}><h3>{label}</h3>Loading...</div>
               ) : (
                 <motion.div
                   key={label}
@@ -144,10 +134,6 @@ const styles = {
     padding: '1rem',
     textAlign: 'center',
     boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-  },
-  cardLabel: {
-    marginBottom: '0.5rem',
-    fontWeight: 'bold',
   },
   drawButton: {
     backgroundColor: '#6b21a8',
