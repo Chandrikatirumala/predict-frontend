@@ -1,0 +1,132 @@
+/* Container centered vertically and horizontally */
+.container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+/* Use table layout for the form */
+form {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px 15px;
+}
+
+form table {
+  width: 100%;
+}
+
+form label {
+  display: inline-block;
+  font-weight: 600;
+  color: #444;
+  padding-right: 10px;
+  vertical-align: middle;
+  width: 120px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Error styling */
+input.is-invalid {
+  border-color: #dc3545;
+  background-color: #f8d7da;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 13px;
+  margin-left: 130px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* API error alert */
+.alert-danger {
+  background-color: #f8d7da;
+  color: #842029;
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #f5c2c7;
+  text-align: center;
+}
+
+/* Submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button[type="submit"]:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Spinner inside button */
+.spinner-border {
+  vertical-align: middle;
+}
+
+/* Link under the form */
+.text-center {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.text-center small {
+  color: #666;
+}
+
+.text-center a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}

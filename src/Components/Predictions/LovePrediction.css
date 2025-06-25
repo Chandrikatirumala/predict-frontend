@@ -1,0 +1,19 @@
+.love-prediction-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff5f7;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.love-prediction-container h1 {
+  color: #ff69b4;
+  margin-bottom: 1rem;
+}
+
+.love-prediction-container p {
+  color: #555
+}

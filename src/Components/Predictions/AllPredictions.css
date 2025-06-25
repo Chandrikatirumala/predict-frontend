@@ -1,0 +1,123 @@
+/* AllPredictions.css */
+
+.predictions-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mystic-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+}
+
+.mystic-glass-inner {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mystic-text {
+  color: #e3d5ff;
+  text-shadow: 0 0 4px #cba0ff;
+}
+
+.mystic-input {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid #cccccc33;
+  border-radius: 0.5rem;
+}
+
+.mystic-input:focus {
+  outline: none;
+  border-color: #b57cff;
+  box-shadow: 0 0 5px 2px #b57cff44;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-mystic {
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-mystic:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #8e2de2, #4a00e0);
+}
+
+.btn-mystic-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+}
+
+.btn-mystic-lg:hover {
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+}
+
+.btn-mystic-sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  background: #5e60ce;
+  border-radius: 0.4rem;
+  color: #fff;
+}
+
+.btn-mystic-sm:hover {
+  background: #7400b8;
+}
+
+.prediction-result {
+  animation: fadeInUp 0.8s ease;
+}
+
+.mystic-prediction {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #fceaff;
+  text-shadow: 0 0 3px #b57cffaa;
+}
+
+.nav-link.active {
+  background-color: #5e60ce;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.nav-link {
+  color: #ffffffcc;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #4a00e0aa;
+  color: white;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

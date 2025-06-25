@@ -1,0 +1,82 @@
+.contact-container {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ffe0ec, #e0eafc);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.contact-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-hero-title {
+  font-size: 2.5rem;
+  color: #4a148c;
+  margin-bottom: 0.5rem;
+}
+
+.contact-hero-description {
+  font-size: 1.1rem;
+  color: #6a1b9a;
+}
+
+.contact-main-section {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-main-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.contact-form-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(74, 21, 127, 0.2);
+}
+
+.contact-form-title {
+  font-size: 1.5rem;
+  color: #4a148c;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.form-submit-button {
+  background: #6a1b9a;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-submit-button:hover {
+  background: #4a148c;
+}

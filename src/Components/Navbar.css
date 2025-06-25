@@ -1,0 +1,64 @@
+/* General navbar overrides */
+.navbar {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Brand styling */
+.navbar-brand {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  color: #ddd !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fff !important;
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+  background-color: #222;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.dropdown-menu .dropdown-item {
+  color: #ddd;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Divider color inside dropdown */
+.dropdown-divider {
+  border-color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .navbar-nav .nav-link,
+  .dropdown-menu .dropdown-item {
+    padding-left: 1rem;
+  }
+
+  .navbar-collapse {
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* Dark background enhancement */
+.navbar-dark.bg-dark {
+  background-color: #111 !important;
+}
