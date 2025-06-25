@@ -11,6 +11,7 @@ import theEmperorImage from '../assets/images/the-emperor.png';
 import loversImage from '../assets/images/lovers.jpg';
 import starImage from '../assets/images/star.jpg';
 import worldImage from '../assets/images/world.jpg';
+
 const tarotImages = {
   'The Fool': foolImage,
   'The Magician': magicianImage,
@@ -21,17 +22,8 @@ const tarotImages = {
   'The Star': starImage,
   'The World': worldImage
 };
+
 const tarotCards = Object.keys(tarotImages);
-const aiMeanings = {
-  'The Fool': "You're about to trip into adventure—hopefully not literally.",
-  'The Magician': "You've got tricks up your sleeve—just don’t pull out a rabbit.",
-  'The High Priestess': "You know things you shouldn’t. Stop reading minds!",
-  'The Empress': "Time to nurture something—plants, pets, or Netflix binges.",
-  'The Emperor': "You're in charge! Or at least, pretending convincingly.",
-  'The Lovers': "Romance is in the air—or is that just your perfume?",
-  'The Star': "Hope shines bright—like your phone screen at 3AM.",
-  'The World': "You did it! Time for a nap and a snack."
-};
 
 function getRandomCards() {
   const shuffled = [...tarotCards].sort(() => Math.random() - 0.5);
@@ -64,9 +56,24 @@ export default function TarotReading() {
     const drawn = getRandomCards();
     setCards(drawn.map(name => ({ name, meaning: null })));
 
-    await new Promise(res => setTimeout(res, 2000));
+    // Fetch AI-generated meanings from backend
+    const predictions = await Promise.all(
+      drawn.map(async (name) => {
+        try {
+          const res = await fetch(`${process.env.REACT_APP_API_URL}/predict`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question: `Give a tarot interpretation for ${name}` })
+          });
+          const data = await res.json();
+          return { name, meaning: data.prediction || 'Mystical silence... try again!' };
+        } catch {
+          return { name, meaning: 'Could not fetch meaning.' };
+        }
+      })
+    );
 
-    setCards(drawn.map(name => ({ name, meaning: aiMeanings[name] })));
+    setCards(predictions);
     setLoading(false);
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 4000);
